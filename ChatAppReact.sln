@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppReact", "ChatAppReact\ChatAppReact.csproj", "{6EF3A2DA-EB1E-446A-859A-6AE261912B7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EF3A2DA-EB1E-446A-859A-6AE261912B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF3A2DA-EB1E-446A-859A-6AE261912B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF3A2DA-EB1E-446A-859A-6AE261912B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF3A2DA-EB1E-446A-859A-6AE261912B7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57FB14BA-C48F-42C2-B0B1-9737E30B57B7}
+	EndGlobalSection
+EndGlobal
