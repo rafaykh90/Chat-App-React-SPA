@@ -29,7 +29,7 @@ namespace ChatAppReact
 			services.AddCors();
 			services.AddSignalR();
 			services.AddSingleton<IUserTracker, UserTracker>();
-			services.AddTransient<IChatMessageRepository, ChatMessageRepositoryLocal>();
+			services.AddTransient<IChatMessageRepository, ChatMessageRepository>();
 			services.AddTransient<IChatService, ChatService>();
 
 			// In production, the React files will be served from this directory

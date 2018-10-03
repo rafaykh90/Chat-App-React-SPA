@@ -11,7 +11,7 @@ namespace ChatAppReact.Services
 {
     public class ChatMessageRepository : IChatMessageRepository
     {
-        private readonly string _tableName;
+        private readonly string _chattableName;
         private readonly CloudTableClient _tableClient;
         private readonly IConfiguration _configuration;
 
@@ -19,9 +19,9 @@ namespace ChatAppReact.Services
         {
             _configuration = configuration;
 
-            var accountName = configuration.GetValue<string>("accountName");
-            var accountKey = configuration.GetValue<string>("accountKey");
-            _tableName = _configuration.GetValue<string>("tableName");
+            var accountName = configuration.GetSection("StorageAccount:accountName").Value;
+            var accountKey = configuration.GetSection("StorageAccount:accountKey").Value;
+            _chattableName = _configuration.GetSection("StorageAccount:chatMessagesTable").Value;
 
             var storageCredentials = new StorageCredentials(accountName, accountKey);
             var storageAccount = new CloudStorageAccount(storageCredentials, true);
@@ -30,7 +30,7 @@ namespace ChatAppReact.Services
 
         public async Task<IEnumerable<ChatMessage>> GetTopMessages(int number = 100)
         {
-            var table = _tableClient.GetTableReference(_tableName);
+            var table = _tableClient.GetTableReference(_chattableName);
 
             // Create the table if it doesn't exist.
             await table.CreateIfNotExistsAsync();
@@ -53,14 +53,14 @@ namespace ChatAppReact.Services
                     Date = entity.Timestamp,
                     Message = entity.Message,
                     Sender = entity.Sender
-                });
+                }).OrderBy(m => m.Date);
 
             return result;
         }
 
         public async Task AddMessage(ChatMessage message)
         {
-            var table = _tableClient.GetTableReference(_tableName);
+            var table = _tableClient.GetTableReference(_chattableName);
 
             // Create the table if it doesn't exist.
             await table.CreateIfNotExistsAsync();

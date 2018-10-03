@@ -4,7 +4,7 @@ class ChatWebsocketService {
 	_connection = null;
 
 	constructor() {
-		let url = `https://${document.location.host}/chat`;
+		let url = `${document.location.protocol}//${document.location.host}/chat`;
 		this._connection = new signalR.HubConnectionBuilder()
 			.withUrl(url)
 			.build();

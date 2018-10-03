@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:latest as build
+FROM microsoft/dotnet:2.1-sdk as build
 WORKDIR /app
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
