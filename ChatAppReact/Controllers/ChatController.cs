@@ -12,18 +12,10 @@ namespace ChatApp.Controllers
 	public class ChatController : Controller
     {
         private readonly IChatService _chatService;
-        private readonly IUserTracker _userTracker;
 
-        public ChatController(IChatService chatService, IUserTracker userTracker)
+        public ChatController(IChatService chatService)
         {
             _chatService = chatService;
-            _userTracker = userTracker;
-        }
-
-		[HttpGet("[action]")]
-        public IEnumerable<UserDetails> LoggedOnUsers()
-        {
-            return _userTracker.UsersOnline();
         }
 
         [HttpGet("[action]")]

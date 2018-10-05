@@ -21,7 +21,7 @@ export class UsersService {
 	}
 
 	fetchLogedOnUsers = (fetchUsersCallback) => {
-		fetch('api/Chat/LoggedOnUsers')
+		fetch('api/Users/LoggedOnUsers')
 			.then(response => response.json())
 			.then(data => {
 				fetchUsersCallback(data);
