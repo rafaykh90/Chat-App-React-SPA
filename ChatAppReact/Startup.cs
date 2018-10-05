@@ -28,7 +28,12 @@ namespace ChatAppReact
 			services.AddMvc();
 			services.AddCors();
 			services.AddSignalR();
-			services.AddSingleton<IUserTracker, UserTracker>();
+
+			//Set Redis Cache for Tracking Online Users
+			RedisConnector.redisHost = Configuration.GetSection("Redis:redisHost").Value;
+			RedisConnector.redisPw = Configuration.GetSection("Redis:redisPw").Value;
+
+			services.AddTransient<IUserTracker, UserTracker>();
 			services.AddTransient<IChatMessageRepository, ChatMessageRepository>();
 			services.AddTransient<IChatService, ChatService>();
 
