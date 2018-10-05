@@ -48,3 +48,7 @@ This is a .Net Core Single Page Chat Application using React as the Client App w
 `UserTracker` is similar to `ChatService` and is used to Add users to the Online List in Redis and Get the online users list from the cache. This class implements `IUserTracker`
 
 The project uses the DI pattern and injects dependencies in constructors, which is provided by `Microsoft.Extensions.DependencyInjection`, and is also used to achieve IoC between classes and their dependencies.
+
+### Deployment to Azure
+The app is deployed to Azure Web App using Azure DevOps Build pipeline.
+App Url: https://rafay-chatapp-spa-01.azurewebsites.net/
