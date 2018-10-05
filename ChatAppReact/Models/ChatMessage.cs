@@ -2,6 +2,9 @@
 
 namespace ChatAppReact.Models
 {
+	/// <summary>
+	/// A simple chat message POCO class
+	/// </summary>
     public class ChatMessage
     {
         public ChatMessage(Guid id)

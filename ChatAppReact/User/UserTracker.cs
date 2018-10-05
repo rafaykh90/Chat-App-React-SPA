@@ -10,7 +10,6 @@ namespace ChatAppReact.User
 	public class UserTracker : IUserTracker
 	{
 		private static ConcurrentBag<UserDetails> joinedUsers = new ConcurrentBag<UserDetails>();
-
 		private IHubContext<ChatHub> _chatHubContext;
 
 		public UserTracker(IHubContext<ChatHub> chatHubContext)

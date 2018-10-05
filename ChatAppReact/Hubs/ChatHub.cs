@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChatAppReact.Hubs
 {
+	/// <summary>
+	/// SignalR Hub class to enable socket communication and perform respective actions
+	/// </summary>
 	public class ChatHub : Hub
 	{
 		private readonly IChatService _chatService;
@@ -17,6 +20,13 @@ namespace ChatAppReact.Hubs
 			_chatService = chatService;
 		}
 
+		/// <summary>
+		/// Invoked from the ClientApp when user enters a message
+		/// 'MessageAdded' callback is used to show the new message on all the clients 
+		/// </summary>
+		/// <param name="username"></param>
+		/// <param name="message"></param>
+		/// <returns></returns>
 		public async Task AddMessage(string username, string message)
 		{
 			var chatMessage = await _chatService.CreateNewMessage(username, message);
@@ -26,6 +36,7 @@ namespace ChatAppReact.Hubs
 
 		public override Task OnConnectedAsync()
 		{
+			//Add Custom functionality here if required
 			return base.OnConnectedAsync();
 		}
 
@@ -35,6 +46,10 @@ namespace ChatAppReact.Hubs
 			return base.OnDisconnectedAsync(exception);
 		}
 
+		/// <summary>
+		/// Invoked from WebsocketService in ClientApp when the connection is successfully created
+		/// </summary>
+		/// <param name="username"></param>
 		public void UserConnected(string username)
 		{
 			var id = Context.ConnectionId;
